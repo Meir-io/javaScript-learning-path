@@ -1,20 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="app.js"></script>
-    <link rel="stylesheet" href="style.css"> 
-    <title>Document</title>
+    <title>Modern JS Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div id="quiz">
-        <h1>QUIZ GAME</h1>
-        <h2>Let's play the quiz</h2>
-        <button class="start">Start</button>
-    </div>
-</body>
+    <div class="app-container">
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen active">
+            <h1>Quiz Master</h1>
+            <p>Test your knowledge in this modern web experience.</p>
+            <button id="start-btn" class="primary-btn">Start Quiz</button>
+        </div>
 
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="screen hide">
+            <div class="quiz-header">
+                <div class="question-count">
+                    <span>Question <span id="current-question-num">1</span></span>/<span id="total-questions">5</span>
+                </div>
+                <div class="timer">
+                    <svg class="timer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span id="time-left">15s</span>
+                </div>
+            </div>
+            
+            <div class="progress-bar-container">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+
+            <div class="question-container">
+                <h2 id="question-text">Question goes here</h2>
+            </div>
+            
+            <div id="answer-buttons" class="btn-grid">
+                <!-- Answer buttons will be injected here -->
+            </div>
+
+            <div class="quiz-footer">
+                <button id="next-btn" class="secondary-btn hide">Next Question</button>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result-screen" class="screen hide">
+            <div class="result-icon">🏆</div>
+            <h2>Quiz Completed!</h2>
+            <div class="score-container">
+                <p>You scored</p>
+                <div class="score-circle">
+                    <span id="score">0</span>
+                </div>
+                <p>out of <span id="total-score">5</span></p>
+            </div>
+            <button id="restart-btn" class="primary-btn">Play Again</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
 </html>

@@ -1,0 +1,47 @@
+[
+    {
+        "question": "What does CSS stand for?",
+        "answers": [
+            { "text": "Creative Style Sheets", "correct": false },
+            { "text": "Cascading Style Sheets", "correct": true },
+            { "text": "Computer Style Sheets", "correct": false },
+            { "text": "Colorful Style Sheets", "correct": false }
+        ]
+    },
+    {
+        "question": "Which built-in method adds one or more elements to the end of an array and returns the new length of the array?",
+        "answers": [
+            { "text": "last()", "correct": false },
+            { "text": "put()", "correct": false },
+            { "text": "push()", "correct": true },
+            { "text": "None of the above", "correct": false }
+        ]
+    },
+    {
+        "question": "How do you write 'Hello World' in an alert box?",
+        "answers": [
+            { "text": "msgBox('Hello World');", "correct": false },
+            { "text": "alertBox('Hello World');", "correct": false },
+            { "text": "msg('Hello World');", "correct": false },
+            { "text": "alert('Hello World');", "correct": true }
+        ]
+    },
+    {
+        "question": "Which of the following is not a reserved word in JavaScript?",
+        "answers": [
+            { "text": "interface", "correct": false },
+            { "text": "throws", "correct": false },
+            { "text": "program", "correct": true },
+            { "text": "short", "correct": false }
+        ]
+    },
+    {
+        "question": "What is the correct way to write a JavaScript array?",
+        "answers": [
+            { "text": "var colors = 1 = ('red'), 2 = ('green'), 3 = ('blue')", "correct": false },
+            { "text": "var colors = ['red', 'green', 'blue']", "correct": true },
+            { "text": "var colors = 'red', 'green', 'blue'", "correct": false },
+            { "text": "var colors = (1:'red', 2:'green', 3:'blue')", "correct": false }
+        ]
+    }
+]

@@ -1,50 +1,4 @@
-const questions = [
-    {
-        question: "What does CSS stand for?",
-        answers: [
-            { text: "Creative Style Sheets", correct: false },
-            { text: "Cascading Style Sheets", correct: true },
-            { text: "Computer Style Sheets", correct: false },
-            { text: "Colorful Style Sheets", correct: false }
-        ]
-    },
-    {
-        question: "Which built-in method adds one or more elements to the end of an array and returns the new length of the array?",
-        answers: [
-            { text: "last()", correct: false },
-            { text: "put()", correct: false },
-            { text: "push()", correct: true },
-            { text: "None of the above", correct: false }
-        ]
-    },
-    {
-        question: "How do you write 'Hello World' in an alert box?",
-        answers: [
-            { text: "msgBox('Hello World');", correct: false },
-            { text: "alertBox('Hello World');", correct: false },
-            { text: "msg('Hello World');", correct: false },
-            { text: "alert('Hello World');", correct: true }
-        ]
-    },
-    {
-        question: "Which of the following is not a reserved word in JavaScript?",
-        answers: [
-            { text: "interface", correct: false },
-            { text: "throws", correct: false },
-            { text: "program", correct: true },
-            { text: "short", correct: false }
-        ]
-    },
-    {
-        question: "What is the correct way to write a JavaScript array?",
-        answers: [
-            { text: "var colors = 1 = ('red'), 2 = ('green'), 3 = ('blue')", correct: false },
-            { text: "var colors = ['red', 'green', 'blue']", correct: true },
-            { text: "var colors = 'red', 'green', 'blue'", correct: false },
-            { text: "var colors = (1:'red', 2:'green', 3:'blue')", correct: false }
-        ]
-    }
-];
+
 
 const startScreen = document.getElementById('start-screen');
 const quizScreen = document.getElementById('quiz-screen');
@@ -70,9 +24,16 @@ let score = 0;
 let timeLeft = 15;
 let timer;
 
-// Initialize
-totalQuestionsElement.innerText = questions.length;
-totalScoreElement.innerText = questions.length;
+let questions = [];
+
+fetch('/api/questions')
+  .then(res => res.json())
+  .then(data => {
+    questions = data;
+    totalQuestionsElement.innerText = questions.length;
+    totalScoreElement.innerText = questions.length;
+  })
+  .catch(err => console.error('Failed to load questions:', err));
 
 startBtn.addEventListener('click', startQuiz);
 nextBtn.addEventListener('click', () => {
@@ -86,8 +47,7 @@ function startQuiz() {
     startScreen.classList.add('hide');
     resultScreen.classList.remove('active');
     resultScreen.classList.add('hide');
-    
-    // Tiny delay for smooth transitions 
+
     setTimeout(() => {
         quizScreen.classList.remove('hide');
         quizScreen.classList.add('active');
@@ -117,7 +77,6 @@ function showQuestion(question) {
             button.dataset.correct = answer.correct;
         }
         
-        // Stagger animation effect
         button.style.animation = `slideIn 0.3s ease forwards ${index * 0.1}s`;
         button.style.opacity = '0';
         button.style.transform = 'translateX(-20px)';
@@ -152,7 +111,6 @@ function selectAnswer(e) {
         selectedButton.classList.add('wrong');
     }
 
-    // Reveal correct answer and disable all buttons
     Array.from(answerButtonsElement.children).forEach(button => {
         if (button.dataset.correct === "true") {
             button.classList.add('correct');
@@ -189,7 +147,6 @@ function updateTimerDisplay() {
 }
 
 function handleTimeOut() {
-    // Disable all buttons and show correct answer
     Array.from(answerButtonsElement.children).forEach(button => {
         if (button.dataset.correct === "true") {
             button.classList.add('correct');
@@ -218,15 +175,12 @@ function showResult() {
         resultScreen.classList.add('active');
         
         scoreElement.innerText = score;
-        
-        // Update conic gradient based on score
         const percentage = (score / questions.length) * 100;
         const scoreCircle = document.querySelector('.score-circle');
         scoreCircle.style.background = `conic-gradient(#a78bfa ${percentage}%, rgba(255, 255, 255, 0.1) ${percentage}%)`;
     }, 100);
 }
 
-// Add animation keyframes via JS for dynamic button insertion
 const style = document.createElement('style');
 style.innerHTML = `
     @keyframes slideIn {

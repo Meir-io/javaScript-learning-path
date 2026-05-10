@@ -43,5 +43,5 @@
             { "text": "var colors = 'red', 'green', 'blue'", "correct": false },
             { "text": "var colors = (1:'red', 2:'green', 3:'blue')", "correct": false }
         ]
-    }
+    }        
 ]

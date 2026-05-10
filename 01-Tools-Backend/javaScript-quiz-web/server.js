@@ -7,6 +7,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 const PORT = 3000;
 
 
+app.get('/api/questions', (req, res) => {
+ const questions = require('./data/questions.json');
+    res.json(questions);
+});
 
 app.use((req, res) => {
     res.status(404).send('This page does not exist');

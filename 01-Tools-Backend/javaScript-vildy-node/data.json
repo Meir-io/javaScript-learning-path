@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "title": "The Godfather",
+    "slug": "the-godfather",
+    "year": 1972,
+    "genre": "Crime"
+  },
+  {
+    "id": "2",
+    "title": "Inception",
+    "slug": "inception",
+    "year": 2010,
+    "genre": "Sci-Fi"
+  },
+  {
+    "id": "3",
+    "title": "Parasite",
+    "slug": "parasite",
+    "year": 2019,
+    "genre": "Thriller"
+  },
+  {
+    "id": "4",
+    "title": "Spirited Away",
+    "slug": "spirited-away",
+    "year": 2001,
+    "genre": "Animation"
+  },
+  {
+    "id": "5",
+    "title": "Interstellar",
+    "slug": "interstellar",
+    "year": 2014,
+    "genre": "Sci-Fi"
+  },
+  {
+    "id": "6",
+    "title": "The Dark Knight",
+    "slug": "the-dark-knight",
+    "year": 2008,
+    "genre": "Action"
+  },
+  {
+    "id": "7",
+    "title": "Avengers",
+    "year": 2017,
+    "genre": "Action"
+  }
+]
